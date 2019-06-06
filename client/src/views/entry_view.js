@@ -1,0 +1,20 @@
+const PubSub = require('../helpers/pub_sub.js')
+
+const EntryView = function (element) {
+    this.element = element;
+}
+
+EntryView.prototype.bindEvents = function (){
+    this.element.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        const word = event.target.word.value;
+        PubSub.publish('EntryView:guess-word', word);
+        this.element.innerHTML = '';
+    })
+}
+
+
+
+
+module.exports = EntryView;
