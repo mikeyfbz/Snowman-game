@@ -4,8 +4,13 @@ const Snowman = require('./model/snowman.js')
 const WordView = require('./views/word_view.js')
 const LetterEntryView = require('./views/letter_entry_view.js')
 const GuessedView = require('./views/guessed_view.js')
+const SnowmanView = require('./views/snowman_view.js')
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    const livesCounter = document.querySelector('#snowman')
+    const snowmanView = new SnowmanView(livesCounter)
+    snowmanView.bindEvents();
 
     const guess = document.querySelector('#guessed_letters')
     const guessedView = new GuessedView(guess)

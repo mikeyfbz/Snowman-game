@@ -42,6 +42,7 @@ WordView.prototype.populateWord = function(letter) {
     this.indexArray.forEach((index) => {
         this.hiddenWord[index] = letter
     })
+    PubSub.publish('WordView:check-word', this.hiddenWord)
     this.render(this.hiddenWord)
 }
 
