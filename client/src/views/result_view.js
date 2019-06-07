@@ -7,6 +7,11 @@ ResultView.prototype.loseGameRender = function(){
     const loseMessage = document.createElement('h1')
     loseMessage.textContent = 'YOU LOSE'
     this.container.appendChild(loseMessage)
+    let playAgainButton = document.createElement('input')
+    playAgainButton.type = "submit"
+    playAgainButton.value = "Play Again!"
+    this.container.appendChild(playAgainButton)
+
 }
 
 ResultView.prototype.winGameRender = function(){
@@ -14,6 +19,10 @@ ResultView.prototype.winGameRender = function(){
     const winMessage = document.createElement('h1')
     winMessage.textContent = 'YOU WIN'
     this.container.appendChild(winMessage)
+    let playAgainButton = document.createElement('input')
+    playAgainButton.type = "submit"
+    playAgainButton.value = "Play Again!"
+    this.container.appendChild(playAgainButton)
 }
 
 
