@@ -64,6 +64,8 @@ Snowman.prototype.winGame = function(){
 }
 
 Snowman.prototype.checkWord = function(wordArray){
+    console.log(wordArray);
+    
     if (wordArray.includes('_')) {
     } else {
         this.winGame()
