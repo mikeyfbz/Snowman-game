@@ -6,14 +6,18 @@ const Snowman = function (){
 
 Snowman.prototype.bindEvents = function () {
     PubSub.subscribe('EntryView:guess-word', (event) => {
-        this.guessWord = event.detail;
+        this.guessedWord = event.detail;
         const hiddenWord = this.hideWord();
         PubSub.publish('Snowman:hidden-word', hiddenWord)
+    })
+    PubSub.subscribe('LetterEntryView:guessed-letter-ready', (event) => {
+        const letter = event.detail
+        this.checkLetter(letter)
     })
 }
 
 Snowman.prototype.hideWord = function() {
-    const wordArray = this.guessWord.toLowerCase().split('')
+    const wordArray = this.guessedWord.toLowerCase().split('')
     const hiddenWord = wordArray.map(letter => {
         if(letter === ' '){
             letter = '/'
@@ -23,6 +27,17 @@ Snowman.prototype.hideWord = function() {
         return letter
     })    
     return hiddenWord;
+}
+
+Snowman.prototype.checkLetter = function (letter) {
+    const containLetter = this.guessedWord.indexOf(letter)
+    console.log(this.guessedWord)
+    console.log(containLetter)
+    if (containLetter === -1) {
+        PubSub.publish('Snowman:incorrect-guessed-letter', letter)
+    } else {
+        PubSub.publish('Snowman:correct-guessed-letter', letter)
+    }
 }
 
 
