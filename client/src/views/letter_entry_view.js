@@ -12,7 +12,6 @@ LetterEntryView.prototype.bindEvents = function(){
             event.preventDefault();
             const enteredLetter = event.target.enteredLetter.value;
             PubSub.publish('LetterEntryView:guessed-letter-ready', enteredLetter)
-            console.log(enteredLetter);
             event.target.reset();
         })
     })

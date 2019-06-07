@@ -30,9 +30,8 @@ Snowman.prototype.hideWord = function() {
 }
 
 Snowman.prototype.checkLetter = function (letter) {
+
     const containLetter = this.guessedWord.indexOf(letter)
-    console.log(this.guessedWord)
-    console.log(containLetter)
     if (containLetter === -1) {
         PubSub.publish('Snowman:incorrect-guessed-letter', letter)
     } else {
