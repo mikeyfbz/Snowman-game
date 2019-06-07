@@ -1,10 +1,11 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const WordView = function(element){
+const WordView = function(element, container){
     this.element = element;
     this.chosenWord = []
     this.hiddenWord = []
     this.indexArray = []
+    this.container = container
 }
 
 WordView.prototype.bindEvents = function(){
@@ -14,6 +15,7 @@ WordView.prototype.bindEvents = function(){
     })
     PubSub.subscribe('EntryView:guess-word', (event) =>{
         this.chosenWord = event.detail.split('')
+        this.renderLabel()
     })
     PubSub.subscribe('Snowman:correct-guessed-letter', (event) => {
         this.populateWord(event.detail)
@@ -41,6 +43,12 @@ WordView.prototype.populateWord = function(letter) {
         this.hiddenWord[index] = letter
     })
     this.render(this.hiddenWord)
+}
+
+WordView.prototype.renderLabel = function (){
+    const label = document.createElement('label')
+    label.textContent = 'Guessed Letters:'
+    this.container.appendChild(label)
 }
 
 
