@@ -11,7 +11,7 @@ LetterEntryView.prototype.bindEvents = function(){
         this.element.addEventListener('submit', (event)=> {
             event.preventDefault();
             const enteredLetter = event.target.enteredLetter.value;
-            console.log(enteredLetter);
+            PubSub.publish('LetterEntryView:guessed-letter-ready', enteredLetter)
             event.target.reset();
         })
     })
@@ -20,7 +20,7 @@ LetterEntryView.prototype.bindEvents = function(){
 LetterEntryView.prototype.render = function (){
     const form = document.createElement('form');
     const label = document.createElement('label')
-    label.textContent = "Entry your letter choice:"
+    label.textContent = "Enter your letter choice:"
     form.appendChild(label);
     const letterEntry = document.createElement('input');
     letterEntry.type = 'text'

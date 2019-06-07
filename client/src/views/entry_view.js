@@ -8,7 +8,7 @@ EntryView.prototype.bindEvents = function (){
     this.element.addEventListener('submit', (event) => {
         event.preventDefault();
         
-        const word = event.target.word.value;
+        const word = event.target.word.value.toLowerCase();
         PubSub.publish('EntryView:guess-word', word);
         this.element.innerHTML = '';
     })

@@ -10,15 +10,11 @@
 <body>
     <h1>Snowman Quiz</h1>
 
-    <div id="snowman">
-        <h1>Head</h1>
-        <h1>Body</h1>
-        <h1>Feet</h1>
-    </div>
+    <div id="snowman"></div>
 
     <form id="enter_word">
         <label for="word">Enter Word:</label>
-        <input type="text" id="word" name="word">
+        <input type="text" id="word" name="word" required pattern="[a-zA-Z\s]+">
         <input type="submit" value="Play!">
     </form>
 
