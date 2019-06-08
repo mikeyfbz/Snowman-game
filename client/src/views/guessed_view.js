@@ -18,8 +18,6 @@ GuessedView.prototype.bindEvents = function(){
     })
     PubSub.subscribe('Snowman:Already-guessed', (event) => {
         this.guessed.style.visibility = 'visible';
-        // const alreadyGuessedLetter = event.detail;
-        // this.renderLetter(`You've already guessed: ${alreadyGuessedLetter}`)
     })
 }
 
