@@ -5,6 +5,7 @@ const Snowman = function (){
     this.guessedWord = '';
     this.counter = 6
     this.hiddenWord = []
+    this.uniqueLetterArray = []
 }
 
 Snowman.prototype.bindEvents = function () {
@@ -16,7 +17,15 @@ Snowman.prototype.bindEvents = function () {
     })
     PubSub.subscribe('LetterEntryView:guessed-letter-ready', (event) => {
         const letter = event.detail
-        this.checkLetter(letter)
+        if(this.uniqueLetterArray.includes(letter)){
+            PubSub.publish('Snowman:Already-guessed', letter)
+        } else {
+            this.uniqueLetterArray.push(letter)
+            console.log(this.uniqueLetterArray);
+            
+            this.checkLetter(letter)
+        }
+        
     })
     PubSub.subscribe('WordView:check-word', (event) => {
         this.checkWord(event.detail)
@@ -44,7 +53,7 @@ Snowman.prototype.checkLetter = function (letter) {
         if (this.counter === 0){
             this.loseGame()
         } else {
-                PubSub.publish('Snowman:counter', this.counter)
+            PubSub.publish('Snowman:counter', this.counter)
         }
     } else {
         PubSub.publish('Snowman:correct-guessed-letter', letter)
@@ -64,8 +73,6 @@ Snowman.prototype.winGame = function(){
 }
 
 Snowman.prototype.checkWord = function(wordArray){
-    console.log(wordArray);
-    
     if (wordArray.includes('_')) {
     } else {
         this.winGame()
