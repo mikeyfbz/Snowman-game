@@ -21,8 +21,6 @@ Snowman.prototype.bindEvents = function () {
             PubSub.publish('Snowman:Already-guessed', letter)
         } else {
             this.uniqueLetterArray.push(letter)
-            console.log(this.uniqueLetterArray);
-            
             this.checkLetter(letter)
         }
         

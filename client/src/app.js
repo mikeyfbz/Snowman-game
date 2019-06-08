@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const snowmanView = new SnowmanView(livesCounter)
     snowmanView.bindEvents();
 
+    const guessed = document.querySelector('#already_guessed')
     const guess = document.querySelector('#guessed_letters')
-    const guessedView = new GuessedView(guess)
+    const guessedView = new GuessedView(guess, guessed)
     guessedView.bindEvents();
 
     const hiddenWord = document.querySelector('#guess')
-    const wordView = new WordView(hiddenWord, guess);
+    const wordView = new WordView(hiddenWord, guess, guessed);
     wordView.bindEvents();
     
     const form = document.querySelector('#enter_word');
