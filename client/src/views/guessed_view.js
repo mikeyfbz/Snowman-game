@@ -13,7 +13,10 @@ GuessedView.prototype.bindEvents = function(){
         const rightLetter = event.detail
         this.renderLetter(rightLetter)
     })
-    
+    PubSub.subscribe('Snowman:Already-guessed', (event) => {
+        const alreadyGuessedLetter = event.detail;
+        this.renderLetter(`You've already guessed: ${alreadyGuessedLetter}`)
+    })
 }
 
 GuessedView.prototype.renderLetter = function(letter) {
