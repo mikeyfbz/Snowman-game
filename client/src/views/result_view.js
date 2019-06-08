@@ -5,23 +5,25 @@ const ResultView = function(container){
 ResultView.prototype.loseGameRender = function(){
     this.container.innerHTML = ''
     const loseMessage = document.createElement('h1')
-    loseMessage.textContent = 'YOU LOSE'
+    loseMessage.textContent = 'YOU LOSE..'
     this.container.appendChild(loseMessage)
-    let playAgainButton = document.createElement('input')
-    playAgainButton.type = "submit"
-    playAgainButton.value = "Play Again!"
-    this.container.appendChild(playAgainButton)
+    const tryAgainButton = document.createElement('button')
+    tryAgainButton.type = 'submit'
+    tryAgainButton.innerHTML = 'Play Again!'
+    tryAgainButton.onclick = function(){location.reload()}
+    this.container.appendChild(tryAgainButton)
 
 }
 
 ResultView.prototype.winGameRender = function(){
     this.container.innerHTML = ''    
     const winMessage = document.createElement('h1')
-    winMessage.textContent = 'YOU WIN'
+    winMessage.textContent = 'YOU WIN!!'
     this.container.appendChild(winMessage)
-    let playAgainButton = document.createElement('input')
-    playAgainButton.type = "submit"
-    playAgainButton.value = "Play Again!"
+    const playAgainButton = document.createElement('button')
+    playAgainButton.type = 'submit'
+    playAgainButton.innerHTML = 'Play Again!'
+    playAgainButton.onclick = function(){location.reload()}
     this.container.appendChild(playAgainButton)
 }
 
