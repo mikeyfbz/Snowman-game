@@ -2,7 +2,8 @@ const PubSub = require('../helpers/pub_sub.js');
 const ResultView = require('../views/result_view')
 
 const Snowman = function (){
-    this.guessedWord = '';
+    this.guessedWordArray = []
+    this.guessedWord = ''
     this.counter = 0
     this.hiddenWord = []
     this.uniqueLetterArray = []
@@ -11,6 +12,7 @@ const Snowman = function (){
 Snowman.prototype.bindEvents = function () {
     PubSub.subscribe('EntryView:guess-word', (event) => {
         this.guessedWord = event.detail.word.value.toLowerCase();
+        this.guessedWordArray = event.detail.word.value.toLowerCase();
         this.hiddenWord = this.hideWord();
         if (event.detail.difficulty.value === 'easy') {
             this.counter = 9
@@ -37,7 +39,7 @@ Snowman.prototype.bindEvents = function () {
 }
 
 Snowman.prototype.hideWord = function() {
-    const wordArray = this.guessedWord.split('')
+    const wordArray = this.guessedWordArray.split('')
     const hiddenWord = wordArray.map(letter => {
         if(letter === ' '){
             letter = '/'
@@ -50,7 +52,7 @@ Snowman.prototype.hideWord = function() {
 }
 
 Snowman.prototype.checkLetter = function (letter) {
-    const containLetter = this.guessedWord.indexOf(letter)
+    const containLetter = this.guessedWordArray.indexOf(letter)
     if (containLetter === -1) {
         PubSub.publish('Snowman:incorrect-guessed-letter', letter)
         this.counter -= 1
@@ -66,13 +68,13 @@ Snowman.prototype.checkLetter = function (letter) {
 
 Snowman.prototype.loseGame = function(){
     const body = document.querySelector('body')
-    const resultView = new ResultView(body)
+    const resultView = new ResultView(body, this.guessedWord)
     resultView.loseGameRender()
 }
 
 Snowman.prototype.winGame = function(){
     const body = document.querySelector('body')
-    const resultView = new ResultView(body)
+    const resultView = new ResultView(body, this.guessedWord)
     resultView.winGameRender()
 }
 
