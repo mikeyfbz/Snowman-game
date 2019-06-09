@@ -28,6 +28,7 @@ LetterEntryView.prototype.render = function (){
     letterEntry.setAttribute('maxlength', '1');
     form.appendChild(letterEntry);
     const submitButton = document.createElement('input');
+    submitButton.id = 'letterSubmit';
     submitButton.type = 'submit';
     form.appendChild(submitButton);
     this.element.appendChild(form);

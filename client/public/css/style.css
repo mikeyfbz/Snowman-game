@@ -24,12 +24,31 @@ h1 {
 }  
 
 h2 {
-    font-size: 40px;
+    font-size: 75px;
     margin-top: 30px;
+    font-family: CF Snowball
+}
+
+
+
+label {
+    font-size: 25px;    
 }
 
 #word, #enteredLetter {
     text-align: left;
+}
+
+#word {
+    font-size: 20px;
+}
+
+#word_submit, #letterSubmit {
+    font-size: 40px;
+    border-radius: 7px;
+    font-family: CF Snowball;
+    margin-top: 30px;
+    padding: 10px;
 }
 
 /* #guessed_letters {
