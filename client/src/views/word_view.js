@@ -39,7 +39,6 @@ WordView.prototype.populateWord = function(letter) {
     this.chosenWord.forEach((wordLetter, index) => {
         if (letter === wordLetter) {
             this.indexArray.push(index)
-            console.log(this.indexArray);
             
         }
     })

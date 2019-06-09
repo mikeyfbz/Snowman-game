@@ -20,13 +20,16 @@ LetterEntryView.prototype.bindEvents = function(){
 LetterEntryView.prototype.render = function (){
     const form = document.createElement('form');
     const label = document.createElement('label')
-    label.textContent = "Enter your letter choice:"
+    label.textContent = "Enter a letter:"
     form.appendChild(label);
     const letterEntry = document.createElement('input');
     letterEntry.type = 'text'
     letterEntry.id = 'enteredLetter'
+    letterEntry.setAttribute('pattern', `[a-zA-Z\s]+`);
     letterEntry.setAttribute('maxlength', '1');
     form.appendChild(letterEntry);
+    const lineBreak = document.createElement('br')
+    form.appendChild(lineBreak);
     const submitButton = document.createElement('input');
     submitButton.id = 'letterSubmit';
     submitButton.type = 'submit';
