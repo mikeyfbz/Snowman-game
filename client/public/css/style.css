@@ -25,12 +25,16 @@ h1 {
 img {
   max-height: 400px;
   max-width: 300px;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* #snowman{
-  height: 400px;
-  width: 300px;
-} */
+#snowman{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
 
 h2 {
     font-size: 75px;
@@ -39,7 +43,7 @@ h2 {
 }
 
 label {
-    font-size: 25px;    
+    font-size: 25px;
 }
 
 #difficulty {
