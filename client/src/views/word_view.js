@@ -54,6 +54,9 @@ WordView.prototype.renderLabel = function (){
     const label = document.createElement('label')
     label.textContent = 'Guessed Letters:'
     this.container.appendChild(label)
+    const letterBox = document.createElement('div');
+    this.container.appendChild(letterBox);
+    letterBox.id = "letterBox";
 }
 
 

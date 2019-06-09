@@ -53,15 +53,19 @@ label {
     padding: 10px;
 }
 
-/* #guessed_letters {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 200px;
-    border: 1px solid grey;
-    border-radius: 5px;
+#guessed_letters {
+    flex: auto;
+    justify-content: center;
+    flex-direction: column;
 }
 
-#guessed_letters p {
-    margin-right: 5px;
-} */
+#letterBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#letterBox p {
+    margin-left: 10px;
+    font-size: 20px;
+}
