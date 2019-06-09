@@ -22,9 +22,10 @@ GuessedView.prototype.bindEvents = function(){
 }
 
 GuessedView.prototype.renderLetter = function(letter) {
+    const letterBox = document.querySelector('#letterBox');
     const guessedLetter = document.createElement('p')
     guessedLetter.textContent = letter
-    this.container.appendChild(guessedLetter)
+    letterBox.appendChild(guessedLetter)
 }
 
 

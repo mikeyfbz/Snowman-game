@@ -15,8 +15,8 @@ WordView.prototype.bindEvents = function(){
         this.render(this.hiddenWord);
     })
     PubSub.subscribe('EntryView:guess-word', (event) =>{
-        this.chosenWord = event.detail.split('')
-        const guessedAlready = document.createElement('h2');
+        this.chosenWord = event.detail.word.value.toLowerCase().split('')
+        const guessedAlready = document.createElement('h3');
         guessedAlready.textContent = "You've already guessed that letter";
         this.guessedContainer.appendChild(guessedAlready);
         this.guessedContainer.style.visibility = 'hidden';
@@ -39,7 +39,6 @@ WordView.prototype.populateWord = function(letter) {
     this.chosenWord.forEach((wordLetter, index) => {
         if (letter === wordLetter) {
             this.indexArray.push(index)
-            console.log(this.indexArray);
             
         }
     })
@@ -55,6 +54,9 @@ WordView.prototype.renderLabel = function (){
     const label = document.createElement('label')
     label.textContent = 'Guessed Letters:'
     this.container.appendChild(label)
+    const letterBox = document.createElement('div');
+    this.container.appendChild(letterBox);
+    letterBox.id = "letterBox";
 }
 
 

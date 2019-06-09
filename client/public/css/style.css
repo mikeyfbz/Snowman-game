@@ -1,5 +1,9 @@
+* {
+    text-align: center;
+    font-family: futura;
+}
 body {
- background-image: url("../gifs/snow2.gif");
+ /* background-image: url("../gifs/snow2.gif"); */
  background-color: #c1f0ff;
  background-size: cover;
 }
@@ -15,7 +19,6 @@ h1 {
     width: 60%;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-family: futura;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -29,15 +32,54 @@ img {
   width: 300px;
 } */
 
-/* #guessed_letters {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 200px;
-    border: 1px solid grey;
-    border-radius: 5px;
+h2 {
+    font-size: 75px;
+    margin-top: 30px;
+    font-family: CF Snowball;
 }
 
-#guessed_letters p {
+label {
+    font-size: 25px;    
+}
+
+#difficulty {
+    margin-bottom: 25px;
+}
+
+#word, #enteredLetter {
+    text-align: left;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+
+#word_submit, #letterSubmit, button {
+    font-size: 40px;
+    border-radius: 7px;
+    font-family: CF Snowball;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+#guessed_letters {
+    flex: auto;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#letterBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#letterBox p {
+    margin-left: 5px;
     margin-right: 5px;
-} */
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 25px;
+    box-shadow: 4px 4px lightslategrey;
+}

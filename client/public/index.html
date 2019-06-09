@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/bundle.js"></script>
-    <title>Snowman Quiz</title>
+    <title>Snowman</title>
 </head>
 <body>
-    <h2>Snowman Quiz</h2>
+    <h2>Snowman</h2>
 
     <div id="snowman"></div>
 
     <form id="enter_word">
+        <!-- <label for="difficulty">Choose your level:</label> -->
+        <label class="radio_label">
+        <input type="radio" id="difficulty" value="easy" name="setting" required >Easy
+        </label>
+        <label class="radio_label">
+        <input type="radio" id="difficulty" value="hard" name="setting">Hard<br>
+        </label>
         <label for="word">Enter Word:</label>
-        <input type="text" id="word" name="word" required pattern="[a-zA-Z\s]+">
-        <input type="submit" value="Play!">
+        <input type="text" id="word" name="word" required pattern="[a-zA-Z\s]+"><br>
+        <input type="submit" value="Play!" id=word_submit>
     </form>
 
     <div id="enter_letter"></div>

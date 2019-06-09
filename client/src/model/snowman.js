@@ -3,15 +3,20 @@ const ResultView = require('../views/result_view')
 
 const Snowman = function (){
     this.guessedWord = '';
-    this.counter = 9
+    this.counter = 0
     this.hiddenWord = []
     this.uniqueLetterArray = []
 }
 
 Snowman.prototype.bindEvents = function () {
     PubSub.subscribe('EntryView:guess-word', (event) => {
-        this.guessedWord = event.detail;
+        this.guessedWord = event.detail.word.value.toLowerCase();
         this.hiddenWord = this.hideWord();
+        if (event.detail.difficulty.value === 'easy') {
+            this.counter = 9
+        } else {
+            this.counter = 5
+        }
         PubSub.publish('Snowman:hidden-word', this.hiddenWord)
         PubSub.publish('Snowman:counter', this.counter)
     })
@@ -31,7 +36,7 @@ Snowman.prototype.bindEvents = function () {
 }
 
 Snowman.prototype.hideWord = function() {
-    const wordArray = this.guessedWord.toLowerCase().split('')
+    const wordArray = this.guessedWord.split('')
     const hiddenWord = wordArray.map(letter => {
         if(letter === ' '){
             letter = '/'
