@@ -3,7 +3,7 @@
     font-family: futura;
 }
 body {
- /* background-image: url("../gifs/snow2.gif"); */
+ background-image: url("../gifs/snow2.gif");
  background-color: #c1f0ff;
  background-size: cover;
 }
@@ -21,6 +21,7 @@ h1 {
     padding-bottom: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: CF Snowball;
 }
 img {
   max-height: 400px;

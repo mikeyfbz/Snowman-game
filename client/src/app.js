@@ -5,6 +5,7 @@ const WordView = require('./views/word_view.js')
 const LetterEntryView = require('./views/letter_entry_view.js')
 const GuessedView = require('./views/guessed_view.js')
 const SnowmanView = require('./views/snowman_view.js')
+const Melt = require('./model/melt.js')
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenWord = document.querySelector('#guess')
     const wordView = new WordView(hiddenWord, guess, guessed);
     wordView.bindEvents();
-    
+
     const form = document.querySelector('#enter_word');
     const entryView = new EntryView(form);
     entryView.bindEvents();
@@ -28,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const letter = document.querySelector('#enter_letter')
     const letterEntryView = new LetterEntryView(letter, form);
     letterEntryView.bindEvents();
+
+    const melt = new Melt(livesCounter)
 
     const snowman = new Snowman();
     snowman.bindEvents();

@@ -18,6 +18,7 @@ Snowman.prototype.bindEvents = function () {
             this.counter = 5
         }
         PubSub.publish('Snowman:hidden-word', this.hiddenWord)
+        PubSub.publish('Snowman:difficulty', event.detail.difficulty.value)
         PubSub.publish('Snowman:counter', this.counter)
     })
     PubSub.subscribe('LetterEntryView:guessed-letter-ready', (event) => {
