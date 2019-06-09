@@ -10,7 +10,7 @@ const Snowman = function (){
 
 Snowman.prototype.bindEvents = function () {
     PubSub.subscribe('EntryView:guess-word', (event) => {
-        this.guessedWord = event.detail.word.value;
+        this.guessedWord = event.detail.word.value.toLowerCase();
         this.hiddenWord = this.hideWord();
         if (event.detail.difficulty.value === 'easy') {
             this.counter = 9
@@ -36,7 +36,7 @@ Snowman.prototype.bindEvents = function () {
 }
 
 Snowman.prototype.hideWord = function() {
-    const wordArray = this.guessedWord.toLowerCase().split('')
+    const wordArray = this.guessedWord.split('')
     const hiddenWord = wordArray.map(letter => {
         if(letter === ' '){
             letter = '/'

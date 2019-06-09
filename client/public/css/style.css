@@ -66,6 +66,11 @@ label {
 }
 
 #letterBox p {
-    margin-left: 10px;
-    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 25px;
+    box-shadow: 4px 4px lightslategrey;
 }
