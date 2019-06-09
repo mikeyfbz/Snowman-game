@@ -1,3 +1,7 @@
+* {
+    text-align: center;
+    font-family: futura;
+}
 body {
  background-image: url("../gifs/snow2.gif");
  background-color: #c1f0ff;
@@ -15,10 +19,18 @@ h1 {
     width: 60%;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-family: futura;
     margin-top: 20px;
     margin-bottom: 20px;
 }  
+
+h2 {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+#word, #enteredLetter {
+    text-align: left;
+}
 
 /* #guessed_letters {
     display: flex;
