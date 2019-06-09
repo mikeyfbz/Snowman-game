@@ -13,7 +13,7 @@ Snowman.prototype.bindEvents = function () {
         this.guessedWord = event.detail.word.value;
         this.hiddenWord = this.hideWord();
         if (event.detail.difficulty.value === 'easy') {
-            this.counter = 10
+            this.counter = 9
         } else {
             this.counter = 5
         }
