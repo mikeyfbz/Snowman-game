@@ -42,7 +42,7 @@ label {
 }
 
 
-#word_submit, #letterSubmit {
+#word_submit, #letterSubmit, button {
     font-size: 40px;
     border-radius: 7px;
     font-family: CF Snowball;
