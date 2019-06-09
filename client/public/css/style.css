@@ -4,8 +4,8 @@ body {
  background-size: cover;
 }
 
-h1 { 
-    font-size: 50px; 
+h1 {
+    font-size: 50px;
     border: solid 1px grey;
     border-radius: 5px;
     margin-left: auto;
@@ -18,7 +18,16 @@ h1 {
     font-family: futura;
     margin-top: 20px;
     margin-bottom: 20px;
-}  
+}
+img {
+  max-height: 400px;
+  max-width: 300px;
+}
+
+/* #snowman{
+  height: 400px;
+  width: 300px;
+} */
 
 /* #guessed_letters {
     display: flex;

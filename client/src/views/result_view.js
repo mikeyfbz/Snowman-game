@@ -7,6 +7,11 @@ ResultView.prototype.loseGameRender = function(){
     const loseMessage = document.createElement('h1')
     loseMessage.textContent = 'YOU LOSE..'
     this.container.appendChild(loseMessage)
+
+    const snowmanLose = document.createElement('img')
+    snowmanLose.src = '/images/snowman15.png'
+    this.container.appendChild(snowmanLose)
+
     const tryAgainButton = document.createElement('button')
     tryAgainButton.type = 'submit'
     tryAgainButton.innerHTML = 'Play Again!'
@@ -16,7 +21,7 @@ ResultView.prototype.loseGameRender = function(){
 }
 
 ResultView.prototype.winGameRender = function(){
-    this.container.innerHTML = ''    
+    this.container.innerHTML = ''
     const winMessage = document.createElement('h1')
     winMessage.textContent = 'YOU WIN!!'
     this.container.appendChild(winMessage)

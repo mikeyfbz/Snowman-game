@@ -3,7 +3,7 @@ const ResultView = require('../views/result_view')
 
 const Snowman = function (){
     this.guessedWord = '';
-    this.counter = 6
+    this.counter = 9
     this.hiddenWord = []
     this.uniqueLetterArray = []
 }
@@ -23,7 +23,7 @@ Snowman.prototype.bindEvents = function () {
             this.uniqueLetterArray.push(letter)
             this.checkLetter(letter)
         }
-        
+
     })
     PubSub.subscribe('WordView:check-word', (event) => {
         this.checkWord(event.detail)
@@ -39,7 +39,7 @@ Snowman.prototype.hideWord = function() {
             letter = '_'
         }
         return letter
-    })    
+    })
     return hiddenWord;
 }
 
