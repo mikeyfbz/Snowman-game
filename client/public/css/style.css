@@ -3,7 +3,7 @@
     font-family: futura;
 }
 body {
- background-image: url("../gifs/snow2.gif");
+ /* background-image: url("../gifs/snow2.gif"); */
  background-color: #c1f0ff;
  background-size: cover;
 }

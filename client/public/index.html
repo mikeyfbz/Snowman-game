@@ -12,15 +12,10 @@
 
     <div id="snowman"></div>
 
-    <div id="difficulty_setting">
-        <form id="difficulty_form">
-            <label for="difficulty">Choose your level:</label>
-            <input type="radio" id="difficulty" value="easy" name="setting" checked>Easy
-            <input type="radio" id="difficulty" value="hard" name="setting">Hard
-        </form>
-    </div>
-
     <form id="enter_word">
+        <label for="difficulty">Choose your level:</label>
+        <input type="radio" id="difficulty" value="easy" name="setting" required>Easy
+        <input type="radio" id="difficulty" value="hard" name="setting">Hard<br>
         <label for="word">Enter Word:</label>
         <input type="text" id="word" name="word" required pattern="[a-zA-Z\s]+"><br>
         <input type="submit" value="Play!" id=word_submit>

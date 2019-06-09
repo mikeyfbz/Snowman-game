@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js')
 
 const EntryView = function (element) {
     this.element = element;
+
 }
 
 EntryView.prototype.bindEvents = function (){
@@ -9,7 +10,8 @@ EntryView.prototype.bindEvents = function (){
         event.preventDefault();
         
         const word = event.target.word.value.toLowerCase();
-        PubSub.publish('EntryView:guess-word', word);
+        PubSub.publish('EntryView:guess-word', event.target);
+        // console.log(event.target.difficulty.value)
         this.element.innerHTML = '';
     })
 }

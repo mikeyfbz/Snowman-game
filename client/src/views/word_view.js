@@ -15,7 +15,7 @@ WordView.prototype.bindEvents = function(){
         this.render(this.hiddenWord);
     })
     PubSub.subscribe('EntryView:guess-word', (event) =>{
-        this.chosenWord = event.detail.split('')
+        this.chosenWord = event.detail.word.value.split('')
         const guessedAlready = document.createElement('h3');
         guessedAlready.textContent = "You've already guessed that letter";
         this.guessedContainer.appendChild(guessedAlready);
