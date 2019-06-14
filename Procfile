@@ -1,0 +1,1 @@
+web: open client/public/index.html 
